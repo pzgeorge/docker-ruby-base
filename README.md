@@ -3,6 +3,7 @@
 Ruby Version: 3.1.2
 Rails: 7.0.2
 Database: Postgresql
+StyleCSS: Tailwind
 
 
 # Start Docker
