@@ -50,6 +50,8 @@ gem "bootsnap", require: false
 
 # Tailwind CSS
 gem "tailwindcss-rails"
+# Reactjs
+gem "react-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
