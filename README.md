@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version: 3.1.2
+Rails: 7.0.2
+Database: Postgresql
 
-Things you may want to cover:
 
-* Ruby version
+# Start Docker
+Make sure you are in the root directory
+```
+docker-compose build
+docker-compose up -d
+```
 
-* System dependencies
+# Check logs
+`docker-compose logs -f --tail=100 web`
 
-* Configuration
+# Run a console
+`docker-compose exec web rails c`
 
-* Database creation
+# Run rake tasks
+`docker-compose exec web bundle exec rake db:migrate`
 
-* Database initialization
+# Run Rspec
+`docker-compose exec web bundle exec rspec`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Bundle install
+```
+docker-compose stop
+docker-compose build
+docker-compose up -d
+```
