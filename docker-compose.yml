@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=angshana
+      - POSTGRES_PASSWORD=shakuganang
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+  web:
+    build: . # Dockerfile is in root directory
+    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - bundler_gems:/usr/local/bundle/
+    ports:
+      - "3000:3000"
+    env_file:
+      - '.env'
+    depends_on:
+      - db
+
+volumes:
+  db:
+    driver: local
+  bundler_gems:
